@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+  <title>All Orders</title>
+</head>
+<body>
+<h1>All Orders</h1>
+<table>
+  <tr>
+    <th>Order ID</th>
+    <th>Order Time</th>
+    <th>Price</th>
+    <th>State</th>
+    <th>User</th>
+  </tr>
+  <!-- Use Thymeleaf to iterate over the orders and populate the table -->
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.id}"></td>
+    <td th:text="${order.orderTime}"></td>
+    <td th:text="${order.price}"></td>
+    <td th:text="${order.state}"></td>
+    <td th:text="${order.user.username}"></td>
+  </tr>
+</table>
+</body>
+</html>

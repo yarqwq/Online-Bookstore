@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+            background-size: cover;
+            background-position: center;
+            background-blur: 10px;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .form .inputBox {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .form .inputBox input {
+            width: 100%;
+            background: rgb(255, 255, 255, 0.2);
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            border-radius: 35px;
+            border: 1px solid rgb(255, 255, 255, 0.5);
+            border-right: 1px solid rgb(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #fff;
+            box-shadow: 0 5px 15px rgb(0, 0, 0, 0.05);
+        }
+        .form .inputBox input::placeholder {
+            color: #fff;
+        }
+        .form .inputBox input[type="submit"] {
+            background: #fff;
+            color: #666;
+            max-width: 100px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .forget {
+            margin-top: 5px;
+            color: #fff;
+        }
+        .forget a {
+            color: #fff;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+<section>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="box">
+        <div class="square" style="--i:0;"></div>
+        <div class="square" style="--i:1;"></div>
+        <div class="square" style="--i:2;"></div>
+        <div class="square" style="--i:3;"></div>
+        <div class="square" style="--i:4;"></div>
+        <div class="container">
+            <div class="form">
+                <h2>登 录 页 面</h2>
+                <form action="/index/login" method="post" onsubmit="return validateForm()">
+                    <div class="inputBox">
+                        <label for="username"></label><input type="text" placeholder="用户名" name="username" id ="username">
+                    </div>
+                    <div class="inputBox">
+                        <label for="password"></label><input type="password" placeholder="密码" name="password" id="password">
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="登录">
+                    </div>
+                    <p class="forget"><a href="reg.html">找 回 密 码</a></p>
+                    <p class="forget"><a href="reg.html">注 册 账 号</a></p>
+                </form>
+            </div>
+        </div>
+            <script>
+                function validateForm() {
+                    const username = document.getElementById("username").value;
+                    const password = document.getElementById("password").value;
+                    if (username === "" || password === "") {
+                        alert("用户名或密码为空");
+                        return false;
+                    }
+                }
+            </script>
+        <script>
+        </script>
+        </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+    <style>body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-size: cover;
+        background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)) center;
+        backdrop-filter: blur(10px);
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        max-width: 800px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .book-recommendations {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .book {
+        margin: 10px;
+        text-align: center;
+    }
+
+    .book img {
+        width: 200px;
+        height: 300px;
+        margin-bottom: 10px;
+    }
+
+    .book h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .book p {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .book a {
+        display: block;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .welcome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }</style>
+</head>
+
+<!--<body>-->
+<!-- 页面内容 -->
+<!--<div>this book list try</div>-->
+<!--<div th:each="book : ${books}">-->
+<!--    &lt;!&ndash; 根据您的需求进行书籍信息的显示 &ndash;&gt;-->
+<!--    <p th:text="${book.name}"></p>-->
+<!--    <p th:text="${book.author}"></p>-->
+<!--    <p th:text="${book.price}"></p>-->
+<!--</div>-->
+<!--</body>-->
+<body>
+<div class="container">
+    <div class="welcome">
+        <h1>Welcome to Bookstore</h1>
+    </div>
+    <div class="book-recommendations">
+        <ul>
+            <li th:each="book: ${books}">
+                <div class="book">
+                    <img th:src="@{${book.image}}" alt="Book" />
+                    <h3 th:text="${book.name}"></h3>
+                    <p th:text="'Author: ' + ${book.author}"></p>
+                    <p th:text="'Price: $' + ${book.price}"></p>
+                    <a th:href="@{/book/{name}(name=${book.name})}">View Details</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

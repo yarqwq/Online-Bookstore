@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+      background-size: cover;
+      background-position: center;
+      background-blur: 10px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .book-image {
+      flex: 0 0 50%;
+      padding: 20px;
+    }
+
+    .book-info {
+      flex: 0 0 50%;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .add-to-cart-btn {
+      background-color: #fff;
+      color: #666;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #ddd;
+    }
+  </style>
+  <title>Book Detail</title>
+</head>
+  <body>
+  <div class="header">
+    <a th:href="@{/books}">Go to Homepage</a>
+  </div>
+  <div class="content">
+    <div class="book-image">
+      <img th:src="@{'/images/' + ${book.image}}" alt="Book Image">
+    </div>
+    <div class="book-info">
+      <h1 th:text="${book.name}"></h1>
+      <p>Title: <span th:text="${book.name}"></span></p>
+      <p>Author: <span th:text="${book.author}"></span></p>
+      <p>Price: $<span th:text="${book.price}"></span></p>
+      <p>Category: <span th:text="${book.categoryId}"></span></p>
+      <p>Description: <span th:text="${book.description}"></span></p>
+      <a class="add-to-cart-btn" href="#">Add to Cart</a>
+    </div>
+  </div>
+  </body>
+</html>
